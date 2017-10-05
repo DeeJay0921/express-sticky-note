@@ -11222,6 +11222,7 @@ Note.prototype = {
 
                 }
                 else {
+                    self.$note.remove();
                     Toast(ret.errorMsg)
                 }
             })

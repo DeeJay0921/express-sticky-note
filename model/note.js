@@ -22,16 +22,18 @@ const Note = sequelize.define('note', {
 
 // Note.sync().then(function () {
 //     Note.create({
-//         text: 'Hello DeeJay'
+//         text: 'Hello DeeJay',
+//         uid: 'assa'
 //     })
+// })
 // }).then(function () {
 //     Note.findAll({raw: true}).then(notes => {
 //         console.log(notes)
 //     })
 // })
 
-Note.findAll({raw: true}).then(function (notes) {
-    console.log(notes)
-})
+// Note.findAll({raw: true}).then(function (notes) {
+//     console.log(notes)
+// })
 
 module.exports.Note = Note

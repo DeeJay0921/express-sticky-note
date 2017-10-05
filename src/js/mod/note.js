@@ -119,6 +119,7 @@ Note.prototype = {
                 }
                 else{
                     // Toast('编辑失败')
+
                     Toast(ret.errorMsg)
                 }
             })
@@ -135,6 +136,8 @@ Note.prototype = {
 
                 }
                 else {
+                    self.$note.remove();
+                    Event.fire('waterfall')
                     Toast(ret.errorMsg)
                 }
             })
@@ -148,6 +151,7 @@ Note.prototype = {
                 if(ret.status === 0) {
                     Toast('删除成功')
                     self.$note.remove()
+                    Event.fire('waterfall')
                 }
                 else {
                     Toast(ret.errorMsg)

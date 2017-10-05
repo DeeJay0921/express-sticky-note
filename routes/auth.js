@@ -38,7 +38,7 @@ router.get('/github/callback',
     function(req, res) {
         // Successful authentication, redirect home.
         req.session.user = {
-            id: req.user._json.uid,
+            id: req.user.id,
             username: req.user.displayName || req.user.username,
             avatar: req.user._json.avatar_url,
             provider: req.user._json.provider
