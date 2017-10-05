@@ -11,8 +11,14 @@ var sequelize = new Sequelize(undefined,undefined,undefined,{
 const Note = sequelize.define('note', {
     text: {
         type: Sequelize.STRING
+    },
+    uid: {
+        type: Sequelize.STRING
     }
+
 });
+// Note.drop()
+// Note.sync({force: true})
 
 // Note.sync().then(function () {
 //     Note.create({

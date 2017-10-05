@@ -18,28 +18,29 @@ passport.deserializeUser(function (obj, done) {
 
 
 passport.use(new GitHubStrategy({
-        clientID: GITHUB_CLIENT_ID,
-        clientSecret: GITHUB_CLIENT_SECRET,
-        callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+        clientID: '60f9c34925eb9239764d',
+        clientSecret: 'f9c4672c848082dc5516f35afd244617ff57bed3',
+        callbackURL: "http://localhost:3000/auth/github/callback"
     },
-    function(accessToken, refreshToken, profile, cb) {
-        User.findOrCreate({ githubId: profile.id }, function (err, user) {
-            return cb(err, user);
-        });
+    function(accessToken, refreshToken, profile, done) {
+        // User.findOrCreate({ githubId: profile.id }, function (err, user) {
+        //     return cb(err, user);
+        // });
+        done(null,profile)
     }
 ));
 
-router.get('/auth/github',
+router.get('/github',
     passport.authenticate('github'));
 
-router.get('/auth/github/callback',
+router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
         req.session.user = {
             id: req.user._json.uid,
-            username: req.user._json.name,
-            avatar: req.user._json.avatar,
+            username: req.user.displayName || req.user.username,
+            avatar: req.user._json.avatar_url,
             provider: req.user._json.provider
         }
         res.redirect('/');
