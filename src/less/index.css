@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 }
 ul,
 li {
@@ -11,23 +12,37 @@ li {
 }
 body {
   font: 14px/1.4 'Arial';
+  background: url("https://i.loli.net/2017/10/05/59d62c7f95098.png") center center no-repeat;
+  background-size: cover;
 }
 a {
   text-decoration: none;
   color: #fff;
 }
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
 #header {
-  height: 30px;
   font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
 }
 #header a {
   display: block;
-  font-size: 12px;
+  font-size: 18px;
   margin-top: 6px;
 }
+#header a svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  transform: translateY(16%);
+}
 #header .user-area {
-  padding-right: 16px;
   float: right;
+  padding: 20px 30px;
 }
 #header .user-area li {
   float: left;
@@ -37,10 +52,29 @@ a {
   color: #fff;
   display: block;
   margin-top: 6px;
+  font-size: 18px;
+}
+#header .user-area .logout {
+  display: flex;
+  justify-content: space-between;
+}
+#header .user-area .logout span {
+  transform: translateY(-15%);
+  transition: all .3s;
+}
+#header .user-area .logout span:hover {
+  color: rgba(238, 249, 252, 0.27);
+}
+#header .user-area .login {
+  transition: all .3s;
+}
+#header .user-area .login:hover {
+  color: rgba(238, 249, 252, 0.27);
 }
 #header .user-area img {
-  height: 18px;
-  margin-top: 5px;
+  height: 30px;
+  margin-top: 3px;
+  margin-right: 5px;
   border-radius: 50%;
 }
 #header .setting {
@@ -50,10 +84,14 @@ a {
 }
 #header .add-note {
   float: left;
-  margin-left: 16px;
-  border: 1px solid #fff;
   border-radius: 4px;
-  padding: 2px 4px;
+  padding: 20px 60px;
+}
+#header .add-note span {
+  transition: all .3s;
+}
+#header .add-note:hover {
+  color: rgba(238, 249, 252, 0.27);
 }
 #header .login {
   float: right;
@@ -63,32 +101,5 @@ a {
   position: relative;
   height: -webkit-calc(70%);
   height: calc(70%);
-}
-@keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-.stars,
-.twinkling {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.stars {
-  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
-  z-index: -2;
-}
-.twinkling {
-  background: transparent url(http://7xpvnv.com2.z0.glb.qiniucdn.com/493b97e6-c499-4b41-a26b-8942873615b0.png) repeat top center;
-  z-index: -1;
-  animation: move-twink-back 200s linear infinite;
+  padding: 60px;
 }

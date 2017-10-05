@@ -7,7 +7,7 @@ var Event = require('mod/event.js')
 function Note(opts) {
     this.initOpts(opts)
     this.createNote()
-    this.setStyle()
+    // this.setStyle()
     this.bindEvent()
 }
 
@@ -19,7 +19,7 @@ Note.prototype = {
     defaultOpts: {
         id: '', //note的id
         $ct: $('#content').length>0 ? $('#content') : $('body'), // 存放Note的容器
-        context: 'input here' //Note的内容
+        context: '嗨，输入点什么吧...' //Note的内容
     },
     initOpts: function (opts) {
         this.opts = $.extend({},this.defaultOpts,opts || {})
@@ -31,28 +31,38 @@ Note.prototype = {
         }
     },
     createNote: function () {
-        var template = `<div class="note">
-        <div class="note-head"><span class="delete">x</span></div>
+        var template = `
+    <div class="note">
+        <div class="note-head">
+            <svg class="icon-ding">
+                <use xlink:href="#icon-ding"></use>
+            </svg>
+            <span class="delete">
+                <svg class="icon-delete">
+                    <use xlink:href="#icon-shanchu"></use>
+                </svg>
+            </span>
+        </div>
         <div class="note-ct" contenteditable="true"></div>
     </div>`
         this.$note = $(template)
         this.$note.find('.note-ct').html(this.opts.context)
         this.opts.$ct.append(this.$note)
-        if(!this.id) {
-            this.$note.css({
-                bottom: 10
-            })
-        }
+        // if(!this.id) {
+        //     this.$note.css({
+        //         bottom: 10
+        //     })
+        // }
     },
-    setStyle: function () {
-        var color = this.colors[Math.floor(Math.random()*2)]
-        this.$note.find('.note-head').css({
-            background: color[0]
-        })
-        this.$note.find('.note-ct').css({
-            background: color[1]
-        })
-    },
+    // setStyle: function () {
+    //     var color = this.colors[Math.floor(Math.random()*2)]
+    //     this.$note.find('.note-head').css({
+    //         background: color[0]
+    //     })
+    //     this.$note.find('.note-ct').css({
+    //         background: color[1]
+    //     })
+    // },
     setLayout: function () {
         var self = this
         if(self.clk) {
@@ -72,10 +82,10 @@ Note.prototype = {
         $delete.on('click',function () {
             self.delete()
         })
-        
+
         $noteCt.on('focus',function () { //监听$noteCt的focus事件
             // 如果内容还是默认的内容的话  focus的时候就清空
-            if($noteCt.html() === 'input here') {
+            if($noteCt.html() === '嗨，输入点什么吧...') {
                 $noteCt.html('')
             }
             $noteCt.data('before',$noteCt.html())
@@ -109,7 +119,7 @@ Note.prototype = {
             })
         })
     },
-    
+
     edit: function (msg) {
         var self = this
         $.post('/api/notes/edit',{id: this.id, notes: msg})
@@ -130,9 +140,10 @@ Note.prototype = {
             .done(function (ret) {
                 console.log(ret)
                 if(ret.status === 0) {
+
                     Toast('添加成功')
                     // self.id = ret.data.id
-                    console.log('add之后，id:' + self.id)
+                    window.location.reload()
 
                 }
                 else {
@@ -142,7 +153,7 @@ Note.prototype = {
                 }
             })
     },
-    
+
     delete: function () {
         var self = this
         console.log(this.id)

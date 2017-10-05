@@ -1,41 +1,60 @@
 .note {
   position: absolute;
   color: #333;
-  width: 160px;
-  margin: 20px 10px;
+  width: 200px;
+  margin: 50px;
   transition: all .5s;
+  background-color: rgba(207, 242, 252, 0.73);
+  min-height: 200px;
 }
-.note .note-head {
-  height: 20px;
-  background-color: #ea9b35;
-  cursor: move;
+.note:nth-child(even) {
+  transform: rotate(10deg);
 }
-.note .note-head:hover .delete {
+.note:nth-child(odd) {
+  transform: rotate(-10deg);
+}
+.note:hover .delete {
   opacity: 1;
 }
-.note .note-head:before {
+.note .note-head {
+  position: relative;
+  height: 20px;
+  cursor: move;
+}
+.note .note-head .icon-ding {
+  width: 30px;
+  height: 30px;
   position: absolute;
-  left: 50%;
-  top: -11px;
-  margin-left: -32px;
-  content: '';
-  display: block;
-  width: 64px;
-  height: 18px;
-  background: #35bba3;
+  left: 46%;
+  top: -104%;
+}
+.note .note-ct {
+  padding: 15px;
+  outline: none;
+  font-size: 18px;
+  line-height: 2em;
+  color: #111;
 }
 .note .delete {
-  position: absolute;
-  top: 4px;
-  right: 4px;
   font-size: 12px;
   color: #ffffff;
   cursor: pointer;
   opacity: 0;
   transition: all .3s;
 }
+.note .delete .icon-delete {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transition: all .3s;
+}
+.note .delete .icon-delete:hover {
+  transform: rotate(90deg);
+}
 .draggable {
-  opacity: 0.8;
+  opacity: 0.6;
   cursor: move;
-  transition: none;
+  transition: opacity .3s;
 }

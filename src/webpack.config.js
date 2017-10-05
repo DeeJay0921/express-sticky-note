@@ -18,6 +18,7 @@ module.exports = {
     resolve: {
         alias: {
             // jquery: path.join(__dirname,'js/lib/jquery-2.0.3.min.js'),
+            // tilt: path.join(__dirname,'js/lib/tilt.js'),
             mod: path.join(__dirname,'js/mod'),
             less: path.join(__dirname,'less')
         }

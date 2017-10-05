@@ -10888,7 +10888,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "html,\nbody {\n  margin: 0;\n  height: 100%;\n}\nul,\nli {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\nbody {\n  font: 14px/1.4 'Arial';\n}\na {\n  text-decoration: none;\n  color: #fff;\n}\n#header {\n  height: 30px;\n  font-size: 12px;\n}\n#header a {\n  display: block;\n  font-size: 12px;\n  margin-top: 6px;\n}\n#header .user-area {\n  padding-right: 16px;\n  float: right;\n}\n#header .user-area li {\n  float: left;\n  margin-left: 5px;\n}\n#header .user-area li span {\n  color: #fff;\n  display: block;\n  margin-top: 6px;\n}\n#header .user-area img {\n  height: 18px;\n  margin-top: 5px;\n  border-radius: 50%;\n}\n#header .setting {\n  float: right;\n  margin-left: 9px;\n  display: none;\n}\n#header .add-note {\n  float: left;\n  margin-left: 16px;\n  border: 1px solid #fff;\n  border-radius: 4px;\n  padding: 2px 4px;\n}\n#header .login {\n  float: right;\n  margin-left: 16px;\n}\n#content {\n  position: relative;\n  height: -webkit-calc(70%);\n  height: calc(70%);\n}\n@keyframes move-twink-back {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: -10000px 5000px;\n  }\n}\n.stars,\n.twinkling {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n}\n.stars {\n  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;\n  z-index: -2;\n}\n.twinkling {\n  background: transparent url(http://7xpvnv.com2.z0.glb.qiniucdn.com/493b97e6-c499-4b41-a26b-8942873615b0.png) repeat top center;\n  z-index: -1;\n  animation: move-twink-back 200s linear infinite;\n}\n", ""]);
+exports.push([module.i, "html,\nbody {\n  margin: 0;\n  height: 100%;\n  font-family: \"Arial\", \"Microsoft YaHei\", \"\\9ED1\\4F53\", \"\\5B8B\\4F53\", sans-serif;\n}\nul,\nli {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\nbody {\n  font: 14px/1.4 'Arial';\n  background: url(\"https://i.loli.net/2017/10/05/59d62c7f95098.png\") center center no-repeat;\n  background-size: cover;\n}\na {\n  text-decoration: none;\n  color: #fff;\n}\n.clearfix:after {\n  content: '';\n  display: block;\n  clear: both;\n}\n#header {\n  font-size: 12px;\n  background: rgba(0, 0, 0, 0.3);\n}\n#header a {\n  display: block;\n  font-size: 18px;\n  margin-top: 6px;\n}\n#header a svg {\n  fill: white;\n  width: 20px;\n  height: 20px;\n  margin-right: 7px;\n  transform: translateY(16%);\n}\n#header .user-area {\n  float: right;\n  padding: 20px 30px;\n}\n#header .user-area li {\n  float: left;\n  margin-left: 5px;\n}\n#header .user-area li span {\n  color: #fff;\n  display: block;\n  margin-top: 6px;\n  font-size: 18px;\n}\n#header .user-area .logout {\n  display: flex;\n  justify-content: space-between;\n}\n#header .user-area .logout span {\n  transform: translateY(-15%);\n  transition: all .3s;\n}\n#header .user-area .logout span:hover {\n  color: rgba(238, 249, 252, 0.27);\n}\n#header .user-area .login {\n  transition: all .3s;\n}\n#header .user-area .login:hover {\n  color: rgba(238, 249, 252, 0.27);\n}\n#header .user-area img {\n  height: 30px;\n  margin-top: 3px;\n  margin-right: 5px;\n  border-radius: 50%;\n}\n#header .setting {\n  float: right;\n  margin-left: 9px;\n  display: none;\n}\n#header .add-note {\n  float: left;\n  border-radius: 4px;\n  padding: 20px 60px;\n}\n#header .add-note span {\n  transition: all .3s;\n}\n#header .add-note:hover {\n  color: rgba(238, 249, 252, 0.27);\n}\n#header .login {\n  float: right;\n  margin-left: 16px;\n}\n#content {\n  position: relative;\n  height: -webkit-calc(70%);\n  height: calc(70%);\n  padding: 60px;\n}\n", ""]);
 
 // exports
 
@@ -11094,7 +11094,7 @@ var Event = __webpack_require__(3)
 function Note(opts) {
     this.initOpts(opts)
     this.createNote()
-    this.setStyle()
+    // this.setStyle()
     this.bindEvent()
 }
 
@@ -11106,7 +11106,7 @@ Note.prototype = {
     defaultOpts: {
         id: '', //note的id
         $ct: $('#content').length>0 ? $('#content') : $('body'), // 存放Note的容器
-        context: 'input here' //Note的内容
+        context: '嗨，输入点什么吧...' //Note的内容
     },
     initOpts: function (opts) {
         this.opts = $.extend({},this.defaultOpts,opts || {})
@@ -11118,28 +11118,38 @@ Note.prototype = {
         }
     },
     createNote: function () {
-        var template = `<div class="note">
-        <div class="note-head"><span class="delete">x</span></div>
+        var template = `
+    <div class="note">
+        <div class="note-head">
+            <svg class="icon-ding">
+                <use xlink:href="#icon-ding"></use>
+            </svg>
+            <span class="delete">
+                <svg class="icon-delete">
+                    <use xlink:href="#icon-shanchu"></use>
+                </svg>
+            </span>
+        </div>
         <div class="note-ct" contenteditable="true"></div>
     </div>`
         this.$note = $(template)
         this.$note.find('.note-ct').html(this.opts.context)
         this.opts.$ct.append(this.$note)
-        if(!this.id) {
-            this.$note.css({
-                bottom: 10
-            })
-        }
+        // if(!this.id) {
+        //     this.$note.css({
+        //         bottom: 10
+        //     })
+        // }
     },
-    setStyle: function () {
-        var color = this.colors[Math.floor(Math.random()*2)]
-        this.$note.find('.note-head').css({
-            background: color[0]
-        })
-        this.$note.find('.note-ct').css({
-            background: color[1]
-        })
-    },
+    // setStyle: function () {
+    //     var color = this.colors[Math.floor(Math.random()*2)]
+    //     this.$note.find('.note-head').css({
+    //         background: color[0]
+    //     })
+    //     this.$note.find('.note-ct').css({
+    //         background: color[1]
+    //     })
+    // },
     setLayout: function () {
         var self = this
         if(self.clk) {
@@ -11159,10 +11169,10 @@ Note.prototype = {
         $delete.on('click',function () {
             self.delete()
         })
-        
+
         $noteCt.on('focus',function () { //监听$noteCt的focus事件
             // 如果内容还是默认的内容的话  focus的时候就清空
-            if($noteCt.html() === 'input here') {
+            if($noteCt.html() === '嗨，输入点什么吧...') {
                 $noteCt.html('')
             }
             $noteCt.data('before',$noteCt.html())
@@ -11196,7 +11206,7 @@ Note.prototype = {
             })
         })
     },
-    
+
     edit: function (msg) {
         var self = this
         $.post('/api/notes/edit',{id: this.id, notes: msg})
@@ -11206,6 +11216,7 @@ Note.prototype = {
                 }
                 else{
                     // Toast('编辑失败')
+
                     Toast(ret.errorMsg)
                 }
             })
@@ -11216,18 +11227,20 @@ Note.prototype = {
             .done(function (ret) {
                 console.log(ret)
                 if(ret.status === 0) {
+
                     Toast('添加成功')
                     // self.id = ret.data.id
-                    console.log('add之后，id:' + self.id)
+                    window.location.reload()
 
                 }
                 else {
                     self.$note.remove();
+                    Event.fire('waterfall')
                     Toast(ret.errorMsg)
                 }
             })
     },
-    
+
     delete: function () {
         var self = this
         console.log(this.id)
@@ -11236,6 +11249,7 @@ Note.prototype = {
                 if(ret.status === 0) {
                     Toast('删除成功')
                     self.$note.remove()
+                    Event.fire('waterfall')
                 }
                 else {
                     Toast(ret.errorMsg)
@@ -11290,7 +11304,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".note {\n  position: absolute;\n  color: #333;\n  width: 160px;\n  margin: 20px 10px;\n  transition: all .5s;\n}\n.note .note-head {\n  height: 20px;\n  background-color: #ea9b35;\n  cursor: move;\n}\n.note .note-head:hover .delete {\n  opacity: 1;\n}\n.note .note-head:before {\n  position: absolute;\n  left: 50%;\n  top: -11px;\n  margin-left: -32px;\n  content: '';\n  display: block;\n  width: 64px;\n  height: 18px;\n  background: #35bba3;\n}\n.note .delete {\n  position: absolute;\n  top: 4px;\n  right: 4px;\n  font-size: 12px;\n  color: #ffffff;\n  cursor: pointer;\n  opacity: 0;\n  transition: all .3s;\n}\n.draggable {\n  opacity: 0.8;\n  cursor: move;\n  transition: none;\n}\n", ""]);
+exports.push([module.i, ".note {\n  position: absolute;\n  color: #333;\n  width: 200px;\n  margin: 50px;\n  transition: all .5s;\n  background-color: rgba(207, 242, 252, 0.73);\n  min-height: 200px;\n}\n.note:nth-child(even) {\n  transform: rotate(10deg);\n}\n.note:nth-child(odd) {\n  transform: rotate(-10deg);\n}\n.note:hover .delete {\n  opacity: 1;\n}\n.note .note-head {\n  position: relative;\n  height: 20px;\n  cursor: move;\n}\n.note .note-head .icon-ding {\n  width: 30px;\n  height: 30px;\n  position: absolute;\n  left: 46%;\n  top: -104%;\n}\n.note .note-ct {\n  padding: 15px;\n  outline: none;\n  font-size: 18px;\n  line-height: 2em;\n  color: #111;\n}\n.note .delete {\n  font-size: 12px;\n  color: #ffffff;\n  cursor: pointer;\n  opacity: 0;\n  transition: all .3s;\n}\n.note .delete .icon-delete {\n  width: 20px;\n  height: 20px;\n  position: absolute;\n  top: 5px;\n  right: 5px;\n  transition: all .3s;\n}\n.note .delete .icon-delete:hover {\n  transform: rotate(90deg);\n}\n.draggable {\n  opacity: 0.6;\n  cursor: move;\n  transition: opacity .3s;\n}\n", ""]);
 
 // exports
 

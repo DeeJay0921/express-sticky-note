@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "webpack": "webpack --config=src/webpack.config.js",
+    "webpack": "webpack --watch --config=src/webpack.config.js",
     "watch": "onchange 'src/**/*.js' 'src/**/*.less' -- npm run webpack"
   },
   "dependencies": {
@@ -23,7 +23,8 @@
     "sequelize": "^4.13.3",
     "serve-favicon": "~2.4.5",
     "sqlite3": "^3.1.13",
-    "style-loader": "^0.18.2"
+    "style-loader": "^0.18.2",
+    "vanilla-tilt": "^1.4.1"
   },
   "devDependencies": {
     "jquery": "^3.2.1",

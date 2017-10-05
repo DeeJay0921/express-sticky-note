@@ -8,23 +8,42 @@
   <title>DeeJay-Express-Note</title>
 </head>
 <body>
-<div id="header">
-  <a href="#" title="添加笔记" class="add-note"><span class="fa fa-plus"></span>添加</a>
+<div id="header" class="clearfix">
+  <a href="#" title="添加笔记" class="add-note"><span class="fa fa-plus"></span>
+    <svg class="icon">
+      <use xlink:href="#icon-icon02"></use>
+    </svg>
+    <span>添加</span>
+  </a>
   <ul class="user-area">
     <% if (isLogin) {%>
     <li><img src="<%= user.avatar %>" alt="头像"></li>
     <li><span title="<%= user.username %>"><%= user.username %></span></li>
     <li><span class="line"> | </span></li>
-    <li><a href="/auth/logout" class="logout">注销</a></li>
+    <li class="clearfix">
+      <a href="/auth/logout" class="logout">
+        <svg class="icon">
+          <use xlink:href="#icon-zhuxiao"></use>
+        </svg>
+        <span>注销</span>
+      </a>
+    </li>
     <%} else { %>
-    <li><a href="/auth/github" class="login" title="GitHub登录">GitHub登录</a></li>
+    <li><a href="/auth/github" class="login" title="GitHub登录">
+        <svg class="icon">
+          <use xlink:href="#icon-github"></use>
+        </svg>
+        GitHub登录
+      </a>
+    </li>
     <% }　%>
   </ul>
 </div>
 <div id="content">
 
 </div>
-<div class="stars"></div>
+<div class=""></div>
+<script src="//at.alicdn.com/t/font_433915_yh5btb9n44zk6gvi.js"></script>
 <script src="/javascripts/bbbundle.js"></script>
 </body>
 </html>
