@@ -13,3 +13,7 @@ $('.add-note').on('click',function () {
 Event.on('waterfall',function () {
     Waterfall.init($('#content'))
 })
+
+$('.reList').on('click',function () {
+    Waterfall.init($('#content'))
+})

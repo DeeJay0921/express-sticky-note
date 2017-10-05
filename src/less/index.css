@@ -103,3 +103,17 @@ a {
   height: calc(70%);
   padding: 60px;
 }
+.reList {
+  cursor: pointer;
+  position: fixed;
+  left: 60px;
+}
+.reList svg {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  transition: fill .5s;
+}
+.reList svg:hover {
+  fill: rgba(238, 249, 252, 0.27);
+}
